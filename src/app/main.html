@@ -64,7 +64,7 @@
 					<div class="block__header block__header_items">
 						<div class="header">
 							<div class="header__title header__title_items">
-								Comments
+								Comments #{{$ctrl.checkedItemNumber}}
 							</div>
 						</div>
 					</div>
@@ -82,7 +82,7 @@
 							</div>
 						</div>	
 					</div>
-					<div class="comments__form">
+					<div class="comments__form" ng-show="$ctrl.checkedItem.hasOwnProperty('itemText')">
 						<div class="comment">
 							<div class="form">
 								<div class="form__avatar">

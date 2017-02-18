@@ -63,6 +63,7 @@ function MainController($log, localStorageService, $window) {
     // $log.log("ctrl.items ", ctrl.items);
     // $log.log("itemIndex ", itemIndex);
     ctrl.checkedItem = ctrl.items[itemIndex];
+    ctrl.checkedItemNumber = itemIndex + 1;
     // $log.log("ctrl.checkedItem ", ctrl.checkedItem);
     // localStorageService.setAppState(ctrl.items);
     // $log.log("batchLog.something");
