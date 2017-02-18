@@ -1,0 +1,94 @@
+<div class="container">
+	<div class="left-block">
+		<div class="main">
+			<div class="block__header">
+				<div class="header">
+					<div class="header__title">
+						Main
+					</div>
+				</div>		
+			</div>
+			<div class="block__paragraph">
+				<div class="block-paragraph">
+					<div class="block-paragraph__title">
+						Overview
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="right-block" ng-init="$ctrl.InputItemText = $ctrl.InputCommentText = ''">
+		<div class="main">
+			<div class="block__items">
+				<div class="items__block">
+					<div class="items">
+						<div class="block__header block__header_items">
+							<div class="header">
+								<div class="header__title header__title_items">
+									Items
+								</div>
+							</div>
+						</div>
+						<form class="items__form">
+							<div class="form">
+								<input type="text" class="form__input" id="usr" placeholder="Type name here..." ng-model="$ctrl.InputItemText">
+								<button class="button form__button" ng-click="$ctrl.addItem()">Add new</button>
+							</div>
+						</form>
+					</div>
+					<div class="items__list">
+						<ul class="items-list">
+							<li class="list__item" ng-repeat="item in $ctrl.items track by $index">
+								<div class="items__check-sign_transp">
+									<div ng-class="{'check-sign': $ctrl.getSignClass(item), 'items__check-sign_transp': !$ctrl.getSignClass(item) }"></div> 	
+								</div> 	
+								<div class="item" ng-click="$ctrl.checkItem($index)">{{item.itemText}}</div>
+								<button class="button button_delete" ng-click="$ctrl.deleteItem($index)">
+									Delete
+								</button>
+							</li>					
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="block__comments">
+				<div class="comments">
+					<div class="block__header block__header_items">
+						<div class="header">
+							<div class="header__title header__title_items">
+								Comments
+							</div>
+						</div>
+					</div>
+					<div class="comments__list">
+						<div class="comments-list">
+							<div class="list__comment" ng-repeat="comment in $ctrl.getComments()">
+								<div class="comment">
+									<div class="comment__avatar">
+										<img src="{{comment.avatar}}" height="50" width="50" class="comment-avatar">
+									</div>
+									<div class="comment__text">
+										{{comment.text}}
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+					<div class="comments__form">
+						<div class="form">
+							<div class="form__avatar">
+								<img src="{{$ctrl.userAvatar}}" height="50" width="50" class="comment-avatar">
+							</div>
+							<input type="text-area" class="form__input form__input_comment" ng-model="$ctrl.InputCommentText">
+							<div class="form__comments-button">
+								<div class="comments-button">
+									<button class="button form__button" ng-click="$ctrl.addComment()">Post</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
