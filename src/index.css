@@ -122,6 +122,11 @@ body {
 	left: -1px;
 }
 
+
+.list__item {
+	overflow: hidden;
+}
+
 .check-sign {
 	width: 3px;
 	height: 999px;
@@ -139,11 +144,9 @@ body {
 
 .items__check-sign_transp {
 	width: 3px;
-	height: 40px;
 	position: relative;
 	display: inline-block;
-	vertical-align: middle;
-	left: -1px;
+	vertical-align: top;
 }
 
 .items-list {
@@ -160,6 +163,14 @@ body {
 	font-size: 14pt;
 	color: black;
 	margin: 0px;
+}
+
+.item-block {
+	box-sizing: border-box;
+	border-bottom: 1px solid black;
+	width: 90%;
+	margin: 0px auto;
+	padding-bottom: 15px;
 }
 
 .item {
@@ -189,6 +200,7 @@ body {
 	background-color: white;
 	color: red;
 	border-color: red;
+	vertical-align: top;
 }
 /*-------------------------form----------------------------*/
 
@@ -223,13 +235,15 @@ body {
 /*-------------------------comments----------------------------*/
 
 .block__comments {
-	width: 49%;
+	width: 45%;
 	background-color: white;
 	position: relative;
 	border: 1px solid #b5b5b5;
 	border-radius: 3px;
 	display: inline-block;
 	vertical-align: top;
+	box-sizing: border-box;
+	margin: 0px 15px;
 }
 
 .main {
@@ -295,15 +309,3 @@ body {
 	padding: 10px 0px;
 }
 
-/*.left-block:after,
-.right-block:after {
-    display: block;
-    position: absolute;
-    height: 100%;
-    content: "";
-    background-color: #434762;
-    }*/
-
-    .list__item {
-    	overflow: hidden;
-    }

@@ -42,10 +42,12 @@
 								<div class="items__check-sign_transp">
 									<div ng-class="{'check-sign': $ctrl.getSignClass(item), 'items__check-sign_transp': !$ctrl.getSignClass(item) }"></div> 	
 								</div> 	
-								<div class="item" ng-click="$ctrl.checkItem($index)">{{item.itemText}}</div>
-								<button class="button button_delete" ng-click="$ctrl.deleteItem($index)">
-									Delete
-								</button>
+								<div class="item-block">
+									<div class="item" ng-click="$ctrl.checkItem($index)">{{item.itemText}}</div>
+									<button class="button button_delete" ng-click="$ctrl.deleteItem($index)">
+										Delete
+									</button>
+								</div>
 							</li>					
 						</ul>
 					</div>
