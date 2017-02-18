@@ -15,7 +15,7 @@ body {
 	display: inline-block;
 	border-radius: 3px;
 	vertical-align: top;
-	/*	min-height: 700px;*/
+		min-height: 1000px;
 	padding-bottom: 99999px;
 	margin-bottom: -99999px;
 }
@@ -168,17 +168,19 @@ body {
 .item-block {
 	box-sizing: border-box;
 	border-bottom: 1px solid black;
-	width: 90%;
+	width: 88%;
 	margin: 0px 5%;
 	display: inline-block;
+	vertical-align: top;
+	position: relative;
 }
 
 .item {
-	width: 70%;
-	display: inline-block;
-	min-height: 45px;
-	vertical-align: text-top;
-	padding-left: 7%;
+    width: 82%;
+    display: inline-block;
+    min-height: 45px;
+    vertical-align: text-top;
+    margin: 15px 0px;
 }
 
 .item:hover {
@@ -186,7 +188,8 @@ body {
 }
 
 .item__text {
-	float: left;
+	padding: 0px;
+	margin: 0px;
 }
 
 .button {
@@ -201,10 +204,11 @@ body {
 }
 
 .button_delete{
-	background-color: white;
-	color: red;
-	border-color: red;
-	vertical-align: top;
+    background-color: white;
+    color: red;
+    border-color: red;
+    vertical-align: top;
+    margin: 15px 0px;
 }
 
 .item__counter {
