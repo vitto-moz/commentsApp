@@ -39,10 +39,10 @@ function MainController($log, localStorageService, $window) {
   } else {
     ctrl.items = localStorageService.getAppState();
   }
+  $log.log("ctrl.items ", ctrl.items);
 
   // save changes to localStorage before closing window
   $window.addEventListener('beforeunload', () => {
-    $log.log("ctrl.items ", ctrl.items);
     localStorageService.setAppState(ctrl.items);
   });
 
