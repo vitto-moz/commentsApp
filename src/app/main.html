@@ -42,7 +42,7 @@
 								<div class="items__check-sign_transp">
 									<div ng-class="{'check-sign': $ctrl.getSignClass(item), 'items__check-sign_transp': !$ctrl.getSignClass(item) }"></div> 	
 								</div> 	
-								<div class="item-block">
+								<div ng-class="{'item-block': !$last, 'item-block_clear': $last }">
 									<div class="item" ng-click="$ctrl.checkItem($index)">
 										<p class="item__text">{{item.itemText}}
 											<mark class="item__counter">
@@ -83,14 +83,19 @@
 						</div>	
 					</div>
 					<div class="comments__form">
-						<div class="form">
-							<div class="form__avatar">
-								<img src="{{$ctrl.userAvatar}}" height="50" width="50" class="comment-avatar">
-							</div>
-							<input type="text-area" class="form__input form__input_comment" ng-model="$ctrl.InputCommentText">
-							<div class="form__comments-button">
-								<div class="comments-button">
-									<button class="button form__button" ng-click="$ctrl.addComment()">Post</button>
+						<div class="comment">
+							<div class="form">
+								<div class="form__avatar">
+									<img src="{{$ctrl.userAvatar}}" height="50" width="50" class="comment-avatar">
+								</div>
+								<div class="form__input-block">
+									<textarea  type="text-area" class="form__input form__input_comment" ng-model="$ctrl.InputCommentText">
+									</textarea>
+									<div class="form__comments-button">
+										<div class="comments-button">
+											<button class="button form__button" ng-click="$ctrl.addComment()">Post</button>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

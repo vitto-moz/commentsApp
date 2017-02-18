@@ -15,7 +15,7 @@ body {
 	display: inline-block;
 	border-radius: 3px;
 	vertical-align: top;
-		min-height: 1000px;
+	min-height: 1000px;
 	padding-bottom: 99999px;
 	margin-bottom: -99999px;
 }
@@ -98,6 +98,7 @@ body {
 	position: relative;
 	display: block;
 	width: 100%;
+	box-shadow: 1px 2px 35px #d2d2d2;
 }
 
 .items {
@@ -167,7 +168,7 @@ body {
 
 .item-block {
 	box-sizing: border-box;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #d2d2d2;
 	width: 88%;
 	margin: 0px 5%;
 	display: inline-block;
@@ -175,12 +176,23 @@ body {
 	position: relative;
 }
 
+.item-block_clear {
+	box-sizing: border-box;
+	border-bottom: 1px solid #d2d2d2;
+	width: 88%;
+	margin: 0px 5%;
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	border-bottom: 0px solid #d2d2d2;
+}
+
 .item {
-    width: 82%;
-    display: inline-block;
-    min-height: 45px;
-    vertical-align: text-top;
-    margin: 15px 0px;
+	width: 82%;
+	display: inline-block;
+	min-height: 45px;
+	vertical-align: text-top;
+	margin: 15px 0px;
 }
 
 .item:hover {
@@ -190,6 +202,14 @@ body {
 .item__text {
 	padding: 0px;
 	margin: 0px;
+	white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+	white-space: -webkit-pre-wrap; /*Chrome & Safari */ 
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	white-space: pre-wrap;       /* css-3 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	word-break: break-all;
+	white-space: normal;
 }
 
 .button {
@@ -204,11 +224,11 @@ body {
 }
 
 .button_delete{
-    background-color: white;
-    color: red;
-    border-color: red;
-    vertical-align: top;
-    margin: 15px 0px;
+	background-color: white;
+	color: red;
+	border-color: red;
+	vertical-align: top;
+	margin: 15px 0px;
 }
 
 .item__counter {
@@ -242,18 +262,23 @@ body {
 }
 
 .form__input {
-	width: 70%;
+	width: 74%;
 	height: 35px;
 	border-radius: 6px;
 	line-height: normal;
+	padding: 0px 0px 0px 15px;
+	font-size: 14pt;
 }
 
 .form__button {
-	width: 115px;
-	height: 35px;
-	background-color: #27ccc0;
-	border-radius: 6px;
-	color: white;
+    width: 125px;
+    height: 35px;
+    background-color: #27ccc0;
+    border-radius: 6px;
+    color: white;
+    border: #27ccc0;
+    margin-top: 10px;
+    font-size: 11pt;
 }
 
 /*-------------------------comments----------------------------*/
@@ -268,6 +293,7 @@ body {
 	vertical-align: top;
 	box-sizing: border-box;
 	margin: 0px 15px;
+	box-shadow: 1px 2px 35px #d2d2d2;
 }
 
 .main {
@@ -295,37 +321,50 @@ body {
 
 .comment__avatar {
 	display: inline-block;
-	width: 30%;
+	width: 60px;
 	vertical-align: top;
 }
 
 .comment__text {
 	display: inline-block;
-	width: 65%;
+	width: 80%;
 }
 
 .form__avatar {
 	display: inline-block;
 	position: relative;
-	width: 30%;
+	width: 60px;
 	height: 60px;
 	color: black;
+	vertical-align: top;
 }
 
 .form__input_comment {
-	width: 59%;
 	position: relative;
 	display: inline-block;
+	vertical-align: top;
+	min-height: 75px;
+	padding: 15px;
+	width: 93%;
 }
 
 .form__comments-button {
 	position: relative;
 	right: 0px;
-	margin: 10px 65%;
+	text-align: right;
+}
+
+.form__input-block {
+	width: 87%;
+	display: inline-block;
 }
 
 .list__comment {
-	border-bottom: 1px solid black
+	border-bottom: 1px solid #d2d2d2;
+}
+
+.list__comment:last-child {
+	border-bottom: 0px solid #d2d2d2;
 }
 
 .comment {
@@ -333,3 +372,6 @@ body {
 	padding: 10px 0px;
 }
 
+textarea {
+	resize: none;
+}
