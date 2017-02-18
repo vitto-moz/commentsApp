@@ -104,7 +104,7 @@ body {
 	position: relative;
 	display: inline-block;
 	width: 100%;
-	padding: 30px 30px 30px 40px;
+	padding: 30px 30px 0px 40px;
 	box-sizing: border-box;
 }
 
@@ -166,11 +166,11 @@ body {
 }
 
 .item-block {
-	box-sizing: border-box;
-	border-bottom: 1px solid black;
-	width: 90%;
-	margin: 0px auto;
-	padding-bottom: 15px;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    width: 90%;
+    margin: 0px 5%;
+    display: inline-block;
 }
 
 .item {
@@ -183,6 +183,10 @@ body {
 
 .item:hover {
 	cursor: pointer;
+}
+
+.item__text {
+	float: left;
 }
 
 .button {
@@ -201,6 +205,23 @@ body {
 	color: red;
 	border-color: red;
 	vertical-align: top;
+}
+
+.item__counter {
+	width: 34px;
+	height: 21px;
+	border-radius: 15px;
+	background-color: #27ccc0;
+	color: white;
+	display: inline-block;
+	font-size: 11pt;
+	text-align: center;
+	vertical-align: top;
+	padding: 2px 0px;
+}
+
+.item-counter {
+	padding: 5px;
 }
 /*-------------------------form----------------------------*/
 
