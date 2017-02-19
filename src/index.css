@@ -6,6 +6,7 @@ body {
 	display: block;
 	font-family: sans-serif;
 	color: #424653;
+	margin: 0px;
 }
 
 .offer-block {
@@ -19,7 +20,6 @@ body {
 	background-color: #434762;
 	position: relative;
 	display: inline-block;
-	border-radius: 3px;
 	vertical-align: top;
 	min-height: 1000px;
 	padding-bottom: 99999px;
@@ -72,12 +72,12 @@ body {
 }
 
 .block-paragraph__title {
-    font-size: 14pt;
-    position: relative;
-    text-align: left;
-    vertical-align: middle;
-    color: white;
-    padding: 5% 8% 5% 8%;
+	font-size: 14pt;
+	position: relative;
+	text-align: left;
+	vertical-align: middle;
+	color: white;
+	padding: 5% 8% 5% 8%;
 }
 
 .block-paragraph__title:hover {
