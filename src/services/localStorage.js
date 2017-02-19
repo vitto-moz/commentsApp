@@ -6,6 +6,8 @@ export const localStorageService = () => {
     },
     setAppState: state => {
       localStorage.setItem("state", angular.toJson(state));
+      const currentState = localStorage.getItem('state');
+      return angular.fromJson(currentState);
     }
   };
 };
