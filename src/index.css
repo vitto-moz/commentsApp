@@ -8,6 +8,11 @@ body {
 	color: #424653;
 }
 
+.offer-block {
+	text-align: center;
+	margin: 15% auto;
+}
+
 /*-------------------------left block----------------------------*/
 .left-block {
 	width: 19%;
@@ -117,10 +122,6 @@ body {
 	width: 100%;
 	padding: 30px 30px 0px 30px;
 	box-sizing: border-box;
-}
-
-.block__header_items {
-	/*height: 50px;*/
 }
 
 .items__check-sign {
@@ -391,13 +392,6 @@ body {
 
 textarea {
 	resize: none;
-}
-
-/*-------------------------------------init------------------------------------------*/
-
-.offer-block {
-	text-align: center;
-	margin: 15% auto;
 }
 
 /*-------------------------------------sidebar------------------------------------------*/

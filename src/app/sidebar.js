@@ -3,6 +3,13 @@ function SidebarController($log, $transitions, $location) {
   // section initialization - this info would be received from backend
   ctrl.sections = [{name: 'Overview', link: 'comments'}];
 
+  // check inital state - if one of link is selected
+  for (let i = ctrl.sections.length - 1; i >= 0; i--) {
+    if (ctrl.sections[i].link === ($location.url()).replace("/", "")) {
+      ctrl.activeSetionIndex = i;
+    }
+  }
+
   // method for highlighting selected section - check if highlight is required
   ctrl.getActiveSection = sectionIndex => {
     if (ctrl.activeSetionIndex === sectionIndex) {
@@ -14,13 +21,6 @@ function SidebarController($log, $transitions, $location) {
   ctrl.activateSection = sectionIndex => {
     ctrl.activeSetionIndex = sectionIndex;
   };
-
-  $log.log("$location.url() ", $location.url());
-  for (let i = ctrl.sections.length - 1; i >= 0; i--) {
-    if (ctrl.sections[i].link === ($location.url()).replace("/", "")) {
-      ctrl.activeSetionIndex = i;
-    }
-  }
 
   // clear section highlight if 'Main' section is activated
   $transitions.onSuccess({}, () => {

@@ -51,6 +51,7 @@ function MainController($log, localStorageService, $window) {
     comments: []
   };
 
+  // get comments of checked item
   ctrl.getComments = () => {
     if (angular.isDefined(ctrl.checkedItem)) {
       return ctrl.checkedItem.comments;
