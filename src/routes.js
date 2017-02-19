@@ -8,6 +8,10 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('app', {
       url: '/',
+      component: 'init'
+    })
+    .state('comments', {
+      url: '/comments',
       component: 'app'
     });
 }

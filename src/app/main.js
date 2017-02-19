@@ -1,20 +1,20 @@
-// import {localStorageService} from '../services/localStorage.js';
+// Item & Comments initialization - this info would be received from backend;
 const items = [
   {
-    itemText: "questions 1",
+    itemText: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni",
     comments: [
       {
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse",
         avatar: "./app/images/orange-avatar.png"
       },
       {
-        text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beata",
+        text: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga",
         avatar: "./app/images/blue-avatar.png"
       }
     ]
   },
   {
-    itemText: "questions 2",
+    itemText: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
     comments: [
       {
         text: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
@@ -30,6 +30,7 @@ const items = [
 
 function MainController($log, localStorageService, $window) {
   const ctrl = this;
+  // initialization of user avatar - this info would be received from backend
   ctrl.userAvatar = './app/images/user-avatar.png';
 
   // check initial state - if first load - save items to localStorage object
@@ -39,19 +40,16 @@ function MainController($log, localStorageService, $window) {
   } else {
     ctrl.items = localStorageService.getAppState();
   }
-  $log.log("ctrl.items ", ctrl.items);
 
   // save changes to localStorage before closing window
   $window.addEventListener('beforeunload', () => {
     localStorageService.setAppState(ctrl.items);
   });
 
+  // fix "undefined" issue if "checkedItem" property
   ctrl.checkedItem = {
     comments: []
   };
-/*  if (angular.isUndefined(ctrl.checkedItem)) {
-
-  }*/
 
   ctrl.getComments = () => {
     if (angular.isDefined(ctrl.checkedItem)) {
@@ -60,15 +58,11 @@ function MainController($log, localStorageService, $window) {
   };
 
   ctrl.checkItem = itemIndex => {
-    // $log.log("ctrl.items ", ctrl.items);
-    // $log.log("itemIndex ", itemIndex);
     ctrl.checkedItem = ctrl.items[itemIndex];
     ctrl.checkedItemNumber = itemIndex + 1;
-    // $log.log("ctrl.checkedItem ", ctrl.checkedItem);
-    // localStorageService.setAppState(ctrl.items);
-    // $log.log("batchLog.something");
   };
 
+  // method for item adding
   ctrl.addItem = () => {
     if (ctrl.InputItemText === '') {
       return;
@@ -80,10 +74,12 @@ function MainController($log, localStorageService, $window) {
     ctrl.InputItemText = "";
   };
 
+  // method for item deleting
   ctrl.deleteItem = itemIndex => {
     ctrl.items.splice(itemIndex, 1);
   };
 
+  // method for comment adding
   ctrl.addComment = () => {
     if (ctrl.InputCommentText === '') {
       return;
@@ -96,6 +92,7 @@ function MainController($log, localStorageService, $window) {
     ctrl.InputCommentText = "";
   };
 
+  // method for highlighting selected item
   ctrl.getSignClass = item => {
     if (item === ctrl.checkedItem) {
       return true;
