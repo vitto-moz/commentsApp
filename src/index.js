@@ -6,6 +6,7 @@ import {sidebar} from './app/sidebar';
 import 'angular-ui-router';
 import routesConfig from './routes';
 import {localStorageService} from './services/localStorage.js';
+import {redirect} from './services/redirect.js';
 
 import './index.css';
 
@@ -17,4 +18,5 @@ angular
   .component('app', main)
   .component('init', init)
   .component('sidebar', sidebar)
-  .factory('localStorageService', [localStorageService]);
+  .factory('localStorageService', [localStorageService])
+  .factory('redirect', [redirect]);

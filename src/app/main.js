@@ -28,10 +28,15 @@ const items = [
   }
 ];
 
-function MainController($log, localStorageService, $window) {
+function MainController($log, localStorageService, $window, $state) {
   const ctrl = this;
   // initialization of user avatar - this info would be received from backend
   ctrl.userAvatar = './app/images/user-avatar.png';
+  ctrl.Initialize = () => {
+    // if(reload)
+    // $state.go('app');
+    ctrl.InputItemText = ctrl.InputCommentText = '';
+  };
 
   // check initial state - if first load - save items to localStorage object
   // if not first start - get state from localStorage object
@@ -43,8 +48,20 @@ function MainController($log, localStorageService, $window) {
 
   // save changes to localStorage before closing window
   $window.addEventListener('beforeunload', () => {
+    // $window.stop();
+    // event.preventDefault();
     localStorageService.setAppState(ctrl.items);
+    $window.location.assign('http://localhost:3000/');
+    $state.go('app');
+    // $window.alert("greeting");
   });
+
+  $window.onbeforeunload = event => {
+    event.preventDefault();
+    return "stop";
+    // $state.go("app", {start: $stateParams.start}, {reload: true});
+    // $window.location = 'http://localhost:3000/';
+  };
 
   // fix "undefined" issue if "checkedItem" property
   ctrl.checkedItem = {
@@ -58,6 +75,7 @@ function MainController($log, localStorageService, $window) {
     }
   };
 
+  // method for checking item by means of click
   ctrl.checkItem = itemIndex => {
     ctrl.checkedItem = ctrl.items[itemIndex];
     ctrl.checkedItemNumber = itemIndex + 1;
@@ -103,6 +121,6 @@ function MainController($log, localStorageService, $window) {
 
 export const main = {
   template: require('./main.html'),
-  controller: ['$log', 'localStorageService', '$window', MainController],
+  controller: ['$log', 'localStorageService', '$window', '$state', MainController],
   bindings: {}
 };

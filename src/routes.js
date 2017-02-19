@@ -11,7 +11,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       component: 'init'
     })
     .state('comments', {
-      url: '/comments',
+      url: '/',
       component: 'app'
     });
 }
