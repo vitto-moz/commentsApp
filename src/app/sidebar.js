@@ -1,11 +1,11 @@
-function SidebarController($log, $transitions, $location) {
+function SidebarController($log, $transitions, $state) {
   const ctrl = this;
   // section initialization - this info would be received from backend
-  ctrl.sections = [{name: 'Overview', link: 'comments'}];
+  ctrl.sections = [{name: 'Overview', stateName: 'Overview'}];
 
   // check inital state - if one of link is selected
   for (let i = ctrl.sections.length - 1; i >= 0; i--) {
-    if (ctrl.sections[i].link === ($location.url()).replace("/", "")) {
+    if (ctrl.sections[i].stateName === $state.current.name) {
       ctrl.activeSetionIndex = i;
     }
   }
@@ -24,7 +24,7 @@ function SidebarController($log, $transitions, $location) {
 
   // clear section highlight if 'Main' section is activated
   $transitions.onSuccess({}, () => {
-    if ($location.url() === "/") {
+    if ($state.current.name === "app") {
       ctrl.activeSetionIndex = -1;
     }
   });
@@ -32,6 +32,6 @@ function SidebarController($log, $transitions, $location) {
 
 export const sidebar = {
   template: require('./sidebar.html'),
-  controller: ['$log', '$transitions', '$location', SidebarController],
+  controller: ['$log', '$transitions', '$state', SidebarController],
   bindings: {}
 };

@@ -9,8 +9,8 @@
 </div>
 <div class="block__paragraph">
 	<div class="block-paragraph">
-		<div class="block-paragraph__title" ng-class="{'checked-section': $ctrl.getActiveSection($index)}" ng-repeat="section in $ctrl.sections track by $index" ng-click="$ctrl.activateSection($index)" ui-sref="{{section.link}}">
-			{{section.name}}
+		<div class="block-paragraph__title" ng-class="{'checked-section': $ctrl.getActiveSection($index)}" ng-repeat="section in $ctrl.sections track by $index" ng-click="$ctrl.activateSection($index)" ui-sref="{{section.stateName}}">
+			{{section.stateName}}
 		</div>
 	</div>
 </div>
