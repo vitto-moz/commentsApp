@@ -28,7 +28,7 @@ const items = [
   }
 ];
 
-function MainController($log, localStorageService, $window) {
+function MainController($log, localStorageService, $window, $transitions) {
   const ctrl = this;
   // initialization of user avatar - this info would be received from backend
   ctrl.userAvatar = './app/images/user-avatar.png';
@@ -46,6 +46,10 @@ function MainController($log, localStorageService, $window) {
 
   // save changes to localStorage before closing window
   $window.addEventListener('beforeunload', () => {
+    localStorageService.setAppState(ctrl.items);
+  });
+
+  $transitions.onExit({}, () => {
     localStorageService.setAppState(ctrl.items);
   });
 
@@ -107,6 +111,6 @@ function MainController($log, localStorageService, $window) {
 
 export const main = {
   template: require('./main.html'),
-  controller: ['$log', 'localStorageService', '$window', MainController],
+  controller: ['$log', 'localStorageService', '$window', '$transitions', MainController],
   bindings: {}
 };
