@@ -11,4 +11,4 @@ export const localStorageService = () => {
       return angular.fromJson(currentState);
     }
   };
-};	
+};

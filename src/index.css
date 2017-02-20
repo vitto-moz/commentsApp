@@ -59,6 +59,10 @@ body {
 	color: #707386;
 }
 
+.header__title_items:hover {
+	cursor: default;;
+}
+
 .block__paragraph {
 	position: relative;
 	display: block;
