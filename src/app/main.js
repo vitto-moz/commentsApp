@@ -49,6 +49,7 @@ function MainController($log, localStorageService, $window, $transitions) {
     localStorageService.setAppState(ctrl.items);
   });
 
+  // save changes to localStorage router state changing
   $transitions.onExit({}, () => {
     localStorageService.setAppState(ctrl.items);
   });
